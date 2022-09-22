@@ -1,4 +1,4 @@
-/*CREATE DATABASE Loja_Carros;*/
+/*CREATE DATABASE carros;*/
 
 CREATE TABLE Veiculo (
     id_veiculo INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
