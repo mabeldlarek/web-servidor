@@ -41,4 +41,10 @@ class VeiculoController
 
         header('Location: /index.php/?page=adm_veiculos&action=list');
     }
+    
+    public function createVehicle(): void
+    {
+        $page = APP_ROOT . '/resources/views/admin/veiculo/createveiculo.view.php';
+        require APP_ROOT . '/resources/views/layout/mainlayout.view.php';
+    }
 }
