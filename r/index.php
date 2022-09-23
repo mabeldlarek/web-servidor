@@ -16,6 +16,8 @@ if(isset($_GET['page'])) {
             $vController->editVehicles($_GET['id']);
         } elseif ($_GET['action'] == 'remove') {
             $vController->removeVehicle($_GET['id']);
+        } else {
+            $vController->createVehicle();
         }
     }
 }
