@@ -9,7 +9,7 @@
     <?php endif;
     unset($_SESSION['message']);
     ?>
-    <a class="btn btn-outline-dark" href="/index.php/?page=adm_veiculos&action=insert?>">Inserir Novo</a>
+    <a class="btn btn-primary m-4" href="/index.php/?page=adm_veiculos&action=insert">Inserir Novo</a>
     <table class="table table-bordered table-hover table-dark text-center">
         <thead>
             <tr>
