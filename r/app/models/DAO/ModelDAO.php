@@ -4,7 +4,7 @@ namespace app\models;
 
 use PDO;
 
-class ModelDAO
+abstract class ModelDAO
 {
 
     protected PDO $conn;
@@ -14,11 +14,6 @@ class ModelDAO
     {
         $this->conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER);
         $this->table = $table;
-    }
-
-    public function close_db(): void
-    {
-        $this->conn->close();
     }
 
     // CRUD

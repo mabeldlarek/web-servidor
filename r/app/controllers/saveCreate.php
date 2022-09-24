@@ -12,5 +12,11 @@ if(isset($_POST['email'])) {
     $_SESSION['message'] = 'Veículo criado com sucesso!';
     $banco = new VeiculoDAO();
     $banco->create($_POST);
-    header('Location: /index.php/?page=adm_veiculos&action=list');
+    header('Location: /?page=adm_veiculos&action=read');
+} elseif (isset($_POST['cnpj'])) {
+
+    $_SESSION['message'] = 'Empresa criada com sucesso!';
+    $banco = new EmpresaDAO();
+    $banco->create($_POST);
+    header('Location: /?page=adm_empresas&action=read');
 }

@@ -36,6 +36,6 @@
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Inserir</button>
-        <a class="btn btn-secondary" href="/index.php/?page=adm_veiculos&action=list">Cancelar</a>
+        <a class="btn btn-secondary" href="/?page=adm_veiculos&action=read">Cancelar</a>
     </form>
 </section>

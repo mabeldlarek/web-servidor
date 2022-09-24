@@ -17,5 +17,8 @@ const DB_NAME = 'carros';
 
 //Autoload de Classes
 require_once APP_ROOT . '/app/models/DAO/ModelDAO.php';
-include_once APP_ROOT . '/app/models/DAO/VeiculoDAO.php';
+require_once APP_ROOT . '/app/models/DAO/VeiculoDAO.php';
+require_once APP_ROOT . '/app/models/DAO/EmpresaDAO.php';
+require_once APP_ROOT . '/app/controllers/AdminController.php';
 require_once APP_ROOT. '/app/controllers/VeiculoController.php';
+require_once APP_ROOT. '/app/controllers/EmpresaController.php';

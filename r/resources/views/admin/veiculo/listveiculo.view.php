@@ -9,7 +9,7 @@
     <?php endif;
     unset($_SESSION['message']);
     ?>
-    <a class="btn btn-primary m-4" href="/index.php/?page=adm_veiculos&action=insert">Inserir Novo</a>
+    <a class="btn btn-primary m-4" href="/?page=adm_veiculos&action=create">Inserir Novo</a>
     <table class="table table-bordered table-hover table-dark text-center">
         <thead>
             <tr>
@@ -26,18 +26,18 @@
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($veiculos as $veiculo):?>
+        <?php foreach ($tuples as $tuple):?>
             <tr>
-                <th scope="row"><?php echo $veiculo['id_veiculo']; ?></th>
-                <td><?= $veiculo['placa']; ?></td>
-                <td><?= $veiculo['modelo']; ?></td>
-                <td><?= $veiculo['marca']; ?></td>
-                <td><?= $veiculo['ano']; ?></td>
-                <td><?= $veiculo['cor']; ?></td>
-                <td><?= $veiculo['quilometragem']; ?>km</td>
-                <td>R$<?= $veiculo['custo_dia']; ?></td>
-                <td><a class="btn btn-outline-light" href="/index.php/?page=adm_veiculos&action=edit&id=<?=$veiculo['id_veiculo']?>"><i class="bi bi-tools"></i></a></td>
-                <td><a class="btn btn-outline-light" href="/index.php/?page=adm_veiculos&action=remove&id=<?=$veiculo['id_veiculo']?>"><i class="bi bi-trash"></i></i></a></td>
+                <th scope="row"><?php echo $tuple['id_veiculo']; ?></th>
+                <td><?= $tuple['placa']; ?></td>
+                <td><?= $tuple['modelo']; ?></td>
+                <td><?= $tuple['marca']; ?></td>
+                <td><?= $tuple['ano']; ?></td>
+                <td><?= $tuple['cor']; ?></td>
+                <td><?= $tuple['quilometragem']; ?>km</td>
+                <td>R$<?= $tuple['custo_dia']; ?></td>
+                <td><a class="btn btn-outline-light" href="/?page=adm_veiculos&action=update&id=<?=$tuple['id_veiculo']?>"><i class="bi bi-tools"></i></a></td>
+                <td><a class="btn btn-outline-light" href="/?page=adm_veiculos&action=delete&id=<?=$tuple['id_veiculo']?>"><i class="bi bi-trash"></i></i></a></td>
             </tr>
         <?php endforeach;?>
         </tbody>

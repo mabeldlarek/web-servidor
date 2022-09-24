@@ -12,5 +12,11 @@ if(isset($_POST['id_usuario'])) {
     $_SESSION['message'] = 'Veículo editado com sucesso!';
     $banco = new VeiculoDAO();
     $banco->update($_POST['id_veiculo'], array_slice($_POST, 1));
-    header('Location: /index.php/?page=adm_veiculos&action=list');
+    header('Location: /?page=adm_veiculos&action=read');
+} elseif (isset($_POST['cnpj'])) {
+
+    $_SESSION['message'] = 'Empresa editada com sucesso!';
+    $banco = new EmpresaDAO();
+    $banco->update($_POST['id_empresa'], array_slice($_POST, 1));
+    header('Location: /?page=adm_empresas&action=read');
 }
