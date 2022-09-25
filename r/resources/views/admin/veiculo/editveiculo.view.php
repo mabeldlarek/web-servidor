@@ -2,6 +2,15 @@
 
     <h1 class="text-center py-4">Editando Veículo #<?=$tuple['id_veiculo']?>:</h1>
 
+    <?php
+    if(isset($_SESSION['message'])):?>
+        <div class="alert alert-danger">
+            <p class="text-center h4"><?=$_SESSION['message']?></p>
+        </div>
+    <?php endif;
+    unset($_SESSION['message']);
+    ?>
+
     <form class="text-center p-4" action="/app/controllers/saveEdit.php" method="POST">
         <div class="row py-4">
             <div class="col">
