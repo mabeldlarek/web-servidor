@@ -2,6 +2,7 @@
 
 use app\controllers\EmpresaController;
 use app\controllers\VeiculoController;
+use app\controllers\UsuarioController;
 
 // Carregando configurações
 
@@ -17,6 +18,8 @@ if(isset($_GET['page'])) {
         $Controller = new VeiculoController();
     } elseif ($_GET['page'] == 'adm_empresas') {
         $Controller = new EmpresaController();
+    } elseif ($_GET['page'] == 'adm_usuarios') {
+        $Controller = new UsuarioController();
     } else {
         $found = false;
     }

@@ -10,7 +10,7 @@
     <?php endif;
     unset($_SESSION['message']);
     ?>
-    <form class="text-center p-4" action="/app/controllers/saveCreate.php" method="POST">
+    <form class="text-center p-4" action="/app/controllers/saveCreate.php" method="POST" enctype="multipart/form-data">
         <div class="row py-4">
             <div class="col">
                 <label for="placa">Placa</label>
@@ -41,6 +41,17 @@
             <div class="col">
                 <label for="custo_dia">Custo por Dia</label>
                 <input type="number" step='0.01' class="form-control" id="custo_dia" name="custo_dia">
+            </div>
+        </div>
+        <div class="row py-4 border-top">
+            <h4>Opcionais</h4>
+            <div class="col">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="imagem" name="imagem">
+            </div>
+            <div class="col">
+                <label for="desc">Descrição da Imagem</label>
+                <input type="text" class="form-control" id="desc" name="desc">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Inserir</button>

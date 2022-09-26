@@ -65,7 +65,7 @@ class Validate
     // Validação de todos os campos de um veiculo, montando array de mensagem de erro
     public function validateVeiculo(array $veiculo): bool
     {
-
+        unset($veiculo['desc']);
         if($this->isEmpty($veiculo)) {
             $this->messages[] = 'Todos os campos devem ser preenchidos';
         } else {
