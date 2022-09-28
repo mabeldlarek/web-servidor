@@ -11,6 +11,6 @@ class ReservaController extends PageController
     public function __construct()
     {
         parent::__construct(new VeiculoDAO(), 'home_reserva');
-        parent::exibirReserva();
+        
     }
 }
