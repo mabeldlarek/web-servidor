@@ -15,8 +15,8 @@
                 <div class="row card">
                     <div class="col-lg-8 align-self-center card-body">
                         <h6>Retirada e devolução:</h6>
-                        <p>Cor: </p>
-                        <p>Ano: </p>
+                        <p>Empresa: </p>
+                        <p>Local: </p>
                     </div>
                 </div>
             </div>
