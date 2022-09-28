@@ -2,7 +2,15 @@
 
     <h1 class="text-center py-4">Inserindo Novo Veículo</h1>
 
-    <form class="text-center p-4" action="/app/controllers/saveCreate.php" method="POST">
+    <?php
+    if(isset($_SESSION['message'])):?>
+        <div class="alert alert-danger">
+            <p class="text-center h4"><?=$_SESSION['message']?></p>
+        </div>
+    <?php endif;
+    unset($_SESSION['message']);
+    ?>
+    <form class="text-center p-4" action="/app/controllers/saveCreate.php" method="POST" enctype="multipart/form-data">
         <div class="row py-4">
             <div class="col">
                 <label for="placa">Placa</label>
@@ -14,7 +22,7 @@
             </div>
             <div class="col">
                 <label for="ano">Ano</label>
-                <input type="number" class="form-control" id="ano" name="ano">
+                <input type="number" step='1' class="form-control" id="ano" name="ano">
             </div>
         </div>
         <div class="row py-4">
@@ -28,11 +36,22 @@
             </div>
             <div class="col">
                 <label for="quilometragem">Quilometragem</label>
-                <input type="number" class="form-control" id="quilometragem" name="quilometragem">
+                <input type="number" step='0.01' class="form-control" id="quilometragem" name="quilometragem">
             </div>
             <div class="col">
                 <label for="custo_dia">Custo por Dia</label>
-                <input type="number" class="form-control" id="custo_dia" name="custo_dia">
+                <input type="number" step='0.01' class="form-control" id="custo_dia" name="custo_dia">
+            </div>
+        </div>
+        <div class="row py-4 border-top">
+            <h4>Opcionais</h4>
+            <div class="col">
+                <label for="imagem">Imagem</label>
+                <input type="file" class="form-control" id="imagem" name="imagem">
+            </div>
+            <div class="col">
+                <label for="desc">Descrição da Imagem</label>
+                <input type="text" class="form-control" id="desc" name="desc">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Inserir</button>

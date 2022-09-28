@@ -23,7 +23,7 @@
                 <input type="email" class="form-control" id="email" name="email" value="<?= $tuple['e_mail']?>">
             </div>
             <div class="col">
-            <label for="telefone">Telefone</label>
+              <label for="telefone">Telefone</label>
                 <input type="text" class="form-control" id="telefone" name="telefone"  pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" value="<?= $tuple['telefone']?>">
             </div>
             <div class="col">

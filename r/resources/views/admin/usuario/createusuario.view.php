@@ -10,7 +10,7 @@
             </div>
             <div class="col">
                 <label for="dtNascimento">Data de Nascimento</label>
-                <input type="date" class="form-control" id="dtNascimento" name="dtNascimento">
+                <input type="text" class="form-control" id="dtNascimento" name="dtNascimento">
             </div>
         </div>
         <div class="row py-4">
@@ -20,7 +20,11 @@
             </div>
             <div class="col">
                 <label for="telefone">Telefone</label>
-                <input type="text" class="form-control" id="telefone" name="telefone">
+                <input type="number" class="form-control" id="telefone" name="telefone"  pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+            </div>
+            <div class="col">
+                <label for="senha">Senha</label>
+                <input type="text" class="form-control" id="senha" name="senha"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
             </div>
             <div class="col">
                 <label for="senha">Senha</label>
