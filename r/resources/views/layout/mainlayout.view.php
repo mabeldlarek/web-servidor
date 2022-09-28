@@ -15,7 +15,7 @@
 
         require APP_ROOT .'/resources/views/layout/partials/header.view.php';
 
-        include($page);
+        include ($page);
 
         require APP_ROOT .'/resources/views/layout/partials/footer.view.php';
 
