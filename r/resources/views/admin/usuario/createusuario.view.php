@@ -15,7 +15,7 @@
         </div>
         <div class="row py-4">
             <div class="col">
-                <label for="email">Endereço</label>
+                <label for="email">E-mail</label>
                 <input type="email" class="form-control" id="email" name="email">
             </div>
             <div class="col">
@@ -25,6 +25,10 @@
             <div class="col">
                 <label for="senha">Senha</label>
                 <input type="text" class="form-control" id="senha" name="senha"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
+            </div>
+            <div class="col">
+                <label for="senha">Senha</label>
+                <input type="text" class="form-control" id="senha" name="senha">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Inserir</button>
