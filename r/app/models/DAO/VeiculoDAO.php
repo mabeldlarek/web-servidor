@@ -18,4 +18,15 @@ class VeiculoDAO extends ModelDAO
 
         return $query->fetchAll();
     }
+
+    public function readLastId(): bool|array
+    {
+
+        $query = $this->conn->prepare(
+            "SELECT MAX(id_veiculo) FROM veiculo");
+        $query->execute();
+
+        return $query->fetch();
+
+    }
 }

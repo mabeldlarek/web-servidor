@@ -41,7 +41,7 @@ CREATE TABLE Empresa (
 CREATE TABLE Imagem (
     id_imagem INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
     descricao VARCHAR(50),
-    caminho VARCHAR(400),
+    imagem LONGBLOB,
     id_veiculo INTEGER
 );
  

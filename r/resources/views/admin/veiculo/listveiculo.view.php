@@ -14,6 +14,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">Thumbnail</th>
                 <th scope="col">Placa</th>
                 <th scope="col">Modelo</th>
                 <th scope="col">Marca</th>
@@ -29,6 +30,11 @@
         <?php foreach ($tuples as $tuple):?>
             <tr>
                 <th scope="row"><?php echo $tuple['id_veiculo']; ?></th>
+                <?php if(isset($images[$tuple['id_veiculo']])):?>
+                    <td><img class="img-fluid" style="max-height: 5rem" src="data:image/jpg;base64,<?php echo base64_encode($images[$tuple['id_veiculo']][0]); ?>" alt="<?= $images[$tuple['id_veiculo']][1] ?>"></td>
+                <?php else:?>
+                    <td><img class="img-fluid" style="max-height: 5rem" src="resources/images/placeholder.jpg" alt="Veículo sem imagem"></td>
+                <?php endif;?>
                 <td><?= $tuple['placa']; ?></td>
                 <td><?= $tuple['modelo']; ?></td>
                 <td><?= $tuple['marca']; ?></td>
