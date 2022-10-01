@@ -34,7 +34,6 @@
                                             <div>
                                                 <p>Ano: <?= $tuple['ano']; ?></p>
                                                 <p>Cor: <?= $tuple['cor']; ?></p>
-                                                <p>Local:  <?= $info['dataEmprestimo']; ?></p>
                                             </div>
                                         </td>
                                         <td><?= $tuple['custo_dia']; ?></td>
@@ -42,12 +41,6 @@
                                         <td>
                                             <form action="/app/controllers/saveReserva.php" method="POST">
                                                 <input type="hidden" id="IdCarroReserva" name="IdCarroReserva" value=<?= $tuple['id_veiculo']; ?>>
-                                                <input type="hidden" id="data_emprestimo" name="data_emprestimo" value=<?= $info['dataEmprestimo']; ?>>
-                                                <input type="hidden" id="data_entrega" name="data_entrega" value=<?= $info['dataEntrega']; ?>>
-                                                <input type="hidden" id="local" name="local" value=<?= $info['local']; ?>>
-                                                <input type="hidden" id="id_usuario" name="id_usuario" value=<?= $_SESSION['id_usuario']; ?>>
-                                                <input type="hidden" id="id_empresa_emprestimo" name="id_empresa_emprestimo" value= 1>
-                                                <input type="hidden" id="id_empresa_entrega" name="id_empresa_entrega" value= 2>
                                                 <button type="submit" class="btn btn-secondary">Reservar</button>
                                             </form>
                                         </td>

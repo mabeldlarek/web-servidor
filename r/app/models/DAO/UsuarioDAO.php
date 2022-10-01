@@ -20,4 +20,5 @@ class UsuarioDAO extends ModelDAO
         $usuario = $query->fetch();
         return $usuario;
     }
+
 }

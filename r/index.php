@@ -41,13 +41,14 @@ if(isset($_GET['page'])) {
         if($_GET['page'] != 'adm_veiculos' && $_GET['page'] != 'adm_empresas' && $_GET['page'] != 'adm_usuarios'){
             if($_GET['page'] == 'home_cars') {
                 if($_GET['action'] == 'buscarCarros'){
-                    $Controller->exibirCarros($_GET['dataEmprestimo']);
+                    $Controller->exibirCarros($_GET['dataEmprestimo'], $_GET['dataEntrega'],
+                    $_GET['local']);
                 }
             }
             elseif($_GET['page'] == 'home_reserva') {
                 if($_GET['action'] == 'reservar'){
-                    $Controller->exibirReserva();
-                    //$Controller->exibirReserva($_GET['IdCarroReserva']);
+                    $Controller->exibirConfirmacaoReserva($_GET['IdCarroReserva'], $_GET['dataEmprestimo'],
+                    $_GET['dataEntrega'], $_GET['local']);
                 }
             }
             elseif($_GET['page'] == 'home') {

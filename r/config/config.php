@@ -19,6 +19,7 @@ const DB_NAME = 'carros';
 require_once APP_ROOT . '/app/models/DAO/ModelDAO.php';
 require_once APP_ROOT . '/app/models/DAO/VeiculoDAO.php';
 require_once APP_ROOT . '/app/models/DAO/EmpresaDAO.php';
+require_once APP_ROOT . '/app/models/DAO/EmprestimoDAO.php';
 require_once APP_ROOT . '/app/models/DAO/UsuarioDAO.php';
 require_once APP_ROOT. '/app/models/DAO/ImagemDAO.php';
 require_once APP_ROOT . '/app/controllers/Validate.php';

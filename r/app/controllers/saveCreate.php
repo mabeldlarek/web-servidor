@@ -58,3 +58,9 @@ if(isset($_POST['email'])) {
         header('Location: /?page=adm_empresas&action=create');
     }
 }
+elseif (isset($_POST['id_empresa_emprestimo'])) {
+    //faltam as validações
+        $banco = new EmprestimoDAO();
+        $banco->create($_POST);
+        echo("sucesso");
+}

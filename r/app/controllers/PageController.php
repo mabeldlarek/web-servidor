@@ -21,18 +21,21 @@ abstract class PageController
         require APP_ROOT . '/resources/views/layout/mainlayout.view.php';
     }
 
-    public function exibirCarros($data): void
+    public function exibirCarros($dataEmprestimo, $dataEntrega, $local): void
     {
-        $tuples = $this->banco->readByAvailableDate($data);
+        $tuples = $this->banco->readByAvailableDate($dataEmprestimo);
+        $info = array("dataEmprestimo" => $dataEmprestimo, "dataEntrega" => $dataEntrega,
+        "local" => $local);
 
         $page = APP_ROOT . '/resources/views/layout/partials/pagecar.view.php';
         require APP_ROOT . '/resources/views/layout/mainlayout.view.php';
     }
 
-    public function exibirConfirmaçãoReserva($idCarro): void
+    public function exibirConfirmacaoReserva($idCarro, $dataEmprestimo, $dataEntrega, $local): void
     {
-        $tuples = $this->banco->obterDadosReserva($idCarro);
-
+        $tuples = $this->banco->obterDadosVeiculo($idCarro);
+        $info = array("dataEmprestimo" => $dataEmprestimo, "dataEntrega" => $dataEntrega,
+        "local" => $local, "idVeiculo" => $idCarro);
         $page = APP_ROOT . '/resources/views/layout/partials/reserva.view.php';
         require APP_ROOT . '/resources/views/layout/mainlayout.view.php';
     }

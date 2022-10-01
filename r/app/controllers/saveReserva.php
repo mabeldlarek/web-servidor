@@ -7,8 +7,17 @@ if(isset($_POST['data_emprestimo'])) {
         echo $date->format('d-m-Y');*/
     header('Location: /?page=cars&action=buscarCarros&dataEmprestimo=' . $_POST['data_emprestimo']);
 }
-else if(isset($_POST['IdCarroReserva']))
+
+if(isset($_POST['IdCarroReserva']))
 {
-    header('Location: /?page=home_reserva&action=reservar');
-    //header('Location: /?page=home_reserva&action=reservar&reserva=' . $_POST['IdCarroReserva']);
+    header('Location: /?page=home_reserva&action=reservar&IdCarroReserva=' . $_POST['IdCarroReserva']. '&dataEmprestimo='.
+    $_POST['data_emprestimo'] .'&dataEntrega=' . $_POST['data_entrega'] . '&local=' . $_POST['local']);
 }
+
+/*if(isset($_POST['confirmaReserva']))
+{
+    $banco = new EmprestimoDAO();
+
+    header('Location: /?page=home_reserva&action=confirmarReserva' . $_POST['confirmaReserva']);
+}*/
+

@@ -30,7 +30,7 @@ class VeiculoDAO extends ModelDAO
 
     }
 
-    public function obterDadosReserva($idCarro): bool|array
+    public function obterDadosVeiculo($idCarro): bool|array
     {
         $query = $this->conn->prepare("SELECT * FROM veiculo
         WHERE id_veiculo ='$idCarro'");

@@ -6,8 +6,8 @@
             <div class="">
                 <form action="/app/controllers/saveSearch.php" method="POST">
                     <div class="mt-2 col-md-8">
-                        <label for="inputPlace" class="form-label">Local de Retirada:</label>
-                        <input type="text" class="form-control" id="inputPlace" name="inputPlace">
+                        <label for="local" class="form-label">Local de Retirada:</label>
+                        <input type="text" class="form-control" id="local" name="local">
                     </div>
                     <div class="mt-3 col-md-3">
                         <label for="data_emprestimo" class="form-label">Data Retirada:</label>
