@@ -20,15 +20,11 @@
             </div>
             <div class="col">
                 <label for="telefone">Telefone</label>
-                <input type="number" class="form-control" id="telefone" name="telefone"  pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                <input type="number" class="form-control" id="telefone" name="telefone">
             </div>
             <div class="col">
                 <label for="senha">Senha</label>
-                <input type="text" class="form-control" id="senha" name="senha"  pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
-            </div>
-            <div class="col">
-                <label for="senha">Senha</label>
-                <input type="text" class="form-control" id="senha" name="senha">
+                <input type="text" class="form-control" id="senha" name="senha" >
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Inserir</button>

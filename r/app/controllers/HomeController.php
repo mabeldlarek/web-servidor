@@ -11,8 +11,6 @@ class HomeController extends PageController
     public function __construct()
     {
         parent::__construct(new VeiculoDAO(), 'home');
-        //parent::exibirHomePage();
     }
-
     
 }

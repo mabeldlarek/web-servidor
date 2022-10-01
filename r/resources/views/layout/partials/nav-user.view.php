@@ -14,7 +14,9 @@
 
             <li><a href="#" class="nav-link px-4 text-white">Contate-nos</a></li>
 
-            <li><a href="/?page=login" class="nav-link px-4 text-white">Entrar/Registrar-se</a></li>
+            <li><a href="#" class="nav-link px-4 text-white">Minha Conta</a></li>
+
+            <li><a href="/app/controllers/saveLogout.php" class="nav-link px-4 text-white">Sair</a></li>
 
         </ul>
 

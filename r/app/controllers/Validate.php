@@ -1,5 +1,7 @@
 <?php
 
+use app\controllers\Autenticador;
+
 class Validate
 {
 
@@ -25,8 +27,7 @@ class Validate
         if (preg_match('/(\d)\1{13}/', $cnpj))
             return false;
 
-        for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++)
-        {
+        for ($i = 0, $j = 5, $soma = 0; $i < 12; $i++) {
             $soma += $cnpj[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
@@ -36,8 +37,7 @@ class Validate
         if ($cnpj[12] != ($resto < 2 ? 0 : 11 - $resto))
             return false;
 
-        for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++)
-        {
+        for ($i = 0, $j = 6, $soma = 0; $i < 13; $i++) {
             $soma += $cnpj[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
@@ -50,7 +50,7 @@ class Validate
     // Transforma array de mensagens em uma lista HTML
     public function buildList(): ?string
     {
-        if(isset($this->messages)) {
+        if (isset($this->messages)) {
             $list = "<ul>";
             foreach ($this->messages as $message) {
                 $list .= "<li><span>$message;</span></li>";
@@ -66,7 +66,7 @@ class Validate
     public function validateVeiculo(array $veiculo): bool
     {
         unset($veiculo['desc']);
-        if($this->isEmpty($veiculo)) {
+        if ($this->isEmpty($veiculo)) {
             $this->messages[] = 'Todos os campos devem ser preenchidos';
         } else {
             if ((strlen($veiculo['placa']) <> 7) || (!preg_match('/[A-Z0-9]/i', $veiculo['placa']))) {
@@ -99,7 +99,7 @@ class Validate
     public function validateEmpresa(array $empresa): bool
     {
 
-        if($this->isEmpty($empresa)) {
+        if ($this->isEmpty($empresa)) {
             $this->messages[] = 'Todos os campos devem ser preenchidos';
         } else {
             if (!$this->validateCNPJ($empresa['cnpj'])) {
@@ -119,4 +119,19 @@ class Validate
         return isset($this->messages);
     }
 
+    public function validateLogin($login, $permissao): bool
+    {
+        if ($permissao === false) {
+            if ((strlen($login['email']) === 0)) {
+                $this->messages[] = 'Informe seu e-mail.';
+            }
+            if ((strlen($login['senha']) === 0)) {
+                $this->messages[] = 'Informe sua senha.';
+            }
+            else
+                $this->messages[] = 'E-mail ou senha incorretos';
+            }
+
+        return isset($this->messages);
+    }
 }

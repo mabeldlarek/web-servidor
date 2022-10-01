@@ -6,6 +6,7 @@ use app\controllers\VeiculoController;
 use app\controllers\UsuarioController;
 use app\controllers\CarPageController;
 use app\controllers\ReservaController;
+use app\controllers\LoginController;
 
 // Carregando configurações
 
@@ -29,6 +30,8 @@ if(isset($_GET['page'])) {
         $Controller = new CarPageController();
     }elseif ($_GET['page'] == 'home_reserva') {
         $Controller = new ReservaController();
+    }elseif ($_GET['page'] == 'login') {
+        $Controller = new LoginController();
     }else {
         $found = false;
     }
@@ -41,14 +44,18 @@ if(isset($_GET['page'])) {
                     $Controller->exibirCarros($_GET['dataEmprestimo']);
                 }
             }
-            if($_GET['page'] == 'home_reserva') {
+            elseif($_GET['page'] == 'home_reserva') {
                 if($_GET['action'] == 'reservar'){
                     $Controller->exibirReserva();
+                    //$Controller->exibirReserva($_GET['IdCarroReserva']);
                 }
             }
             elseif($_GET['page'] == 'home') {
                     $Controller->exibirHomePage();
             }
+            elseif($_GET['page'] == 'login') {
+                $Controller->exibirLogin();
+        }
         }else{
                 if ($_GET['action'] == 'read') {
                     $Controller->read();
@@ -65,8 +72,8 @@ if(isset($_GET['page'])) {
 }
 else {
     // TODO Substituir pela Home Screen
-    $Controller = new VeiculoController();
-    $Controller->read();
+    $Controller = new HomeController();
+    $Controller->exibirHomePage();
 }
 
 

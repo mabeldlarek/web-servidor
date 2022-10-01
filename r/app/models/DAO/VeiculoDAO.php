@@ -29,4 +29,13 @@ class VeiculoDAO extends ModelDAO
         return $query->fetch();
 
     }
+
+    public function obterDadosReserva($idCarro): bool|array
+    {
+        $query = $this->conn->prepare("SELECT * FROM veiculo
+        WHERE id_veiculo ='$idCarro'");
+        $query->execute();
+
+        return $query->fetch();
+    }
 }
