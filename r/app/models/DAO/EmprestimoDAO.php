@@ -18,7 +18,7 @@ class EmprestimoDAO extends ModelDAO
             JOIN veiculo v USING(id_veiculo) 
             RIGHT JOIN empresa s ON s.id_empresa = id_empresa_emprestimo 
             RIGHT JOIN empresa d ON d.id_empresa = id_empresa_entrega 
-            WHERE e.id_usuario = 2 
+            WHERE e.id_usuario = $id 
             ORDER BY data_emprestimo;
         ");
         $query->execute();

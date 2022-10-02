@@ -15,10 +15,10 @@ abstract class PublicController
         $this->tipo = $tipo;
     }
 
-    public function read(): void
+    public function update(int $id): void
     {
         if(isset($this->banco)) {
-            $tuples = $this->banco->read();
+            $tuples = $this->banco->read($id);
         }
 
         $page = APP_ROOT . '/resources/views/public/' . $this->tipo . '.view.php';
