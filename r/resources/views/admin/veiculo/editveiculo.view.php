@@ -2,21 +2,11 @@
 
     <h1 class="text-center py-4">Editando Veículo #<?=$tuple['id_veiculo']?>:</h1>
 
-    <?php
-    if(isset($_SESSION['message'])):?>
-        <div class="alert alert-danger">
-            <p class="text-center h4"><?=$_SESSION['message']?></p>
-        </div>
-    <?php endif;
-    unset($_SESSION['message']);
-    ?>
+    <?php include APP_ROOT . '/resources/views/layout/partials/alertwarning.view.php'?>
 
     <form class="text-center p-4" action="/app/controllers/saveEdit.php" method="POST" enctype="multipart/form-data">
         <div class="row py-4">
-            <div class="col">
-                <label for="id_veiculo">ID</label>
-                <input type="text" class="form-control" id="id_veiculo" name="id_veiculo" value="<?= $tuple['id_veiculo']?>" readonly>
-            </div>
+            <input type="hidden"id="id_veiculo" name="id_veiculo" value="<?= $tuple['id_veiculo']?>">
             <div class="col">
                 <label for="placa">Placa</label>
                 <input type="text" class="form-control" id="placa" name="placa" value="<?= $tuple['placa']?>">

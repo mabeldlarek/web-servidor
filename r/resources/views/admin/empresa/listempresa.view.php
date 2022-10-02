@@ -1,14 +1,9 @@
 <section class="container">
 
     <h1 class="text-center">Empresas:</h1>
-    <?php
-    if(isset($_SESSION['message'])):?>
-        <div class="alert alert-success">
-            <p class="text-center h4"><?=$_SESSION['message']?></p>
-        </div>
-    <?php endif;
-    unset($_SESSION['message']);
-    ?>
+
+    <?php include APP_ROOT . '/resources/views/layout/partials/alertsuccess.view.php'?>
+
     <a class="btn btn-primary m-4" href="/?page=adm_empresas&action=create">Inserir Nova</a>
     <table class="table table-bordered table-hover table-dark text-center">
         <thead>

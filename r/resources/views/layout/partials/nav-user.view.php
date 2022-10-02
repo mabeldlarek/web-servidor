@@ -14,7 +14,7 @@
 
             <li><a href="#" class="nav-link px-4 text-white">Contate-nos</a></li>
 
-            <li><a href="#" class="nav-link px-4 text-white">Minha Conta</a></li>
+            <li><a href="/?page=perfil&action=read" class="nav-link px-4 text-white">Minha Conta</a></li>
 
             <li><a href="/app/controllers/saveLogout.php" class="nav-link px-4 text-white">Sair</a></li>
 
