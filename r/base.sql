@@ -27,7 +27,8 @@ CREATE TABLE Usuario (
     data_nascimento DATE,
     numero_carteira_motorista INTEGER,
     e_mail VARCHAR(50),
-    telefone VARCHAR(20)
+    telefone VARCHAR(20),
+    cpf INTEGER
 );
 
 CREATE TABLE Empresa (

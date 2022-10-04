@@ -6,9 +6,18 @@ $validator = new Validate();
 
 // Definição de qual tupla atualizar os dados e validação de regras de negócio
 if(isset($_POST['id_usuario'])) {
+    if(!$validator->validateUsuario($_POST)) {
 
-    //$banco = new UsuarioDAO();
-    //$banco->update($_POST['id_usuario'], array_slice($_POST, 1));
+        $_SESSION['message'] = 'Usuário editado com sucesso!';
+        $banco = new UsuarioDAO();
+        $banco->update($_POST['id_usuario'], array_slice($_POST, 1));
+        header('Location: /?page=adm_usuarios&action=read');
+
+    } else {
+
+        $_SESSION['message'] = $validator->buildList();
+        header('Location: /?page=adm_usuarios&action=update&id=' . $_POST['id_usuario']);
+    }
 
 } elseif (isset($_POST['id_veiculo'])) {
 

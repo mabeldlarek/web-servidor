@@ -1,4 +1,12 @@
 <section class="ftco-section">
+<?php
+    if(isset($_SESSION['message'])):?>
+        <div class="alert alert-danger">
+            <p class="text-center h4"><?=$_SESSION['message']?></p>
+        </div>
+    <?php endif;
+    unset($_SESSION['message']);
+    ?> 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-4">
@@ -45,7 +53,6 @@
                                                 <input type="hidden" id="data_emprestimo" name="data_emprestimo" value=<?= $info['dataEmprestimo']; ?>>
                                                 <input type="hidden" id="data_entrega" name="data_entrega" value=<?= $info['dataEntrega']; ?>>
                                                 <input type="hidden" id="local" name="local" value=<?= $info['local']; ?>>
-                                                <input type="hidden" id="id_usuario" name="id_usuario" value=<?= $_SESSION['id_usuario']; ?>>
                                                 <input type="hidden" id="id_empresa_emprestimo" name="id_empresa_emprestimo" value= 1>
                                                 <input type="hidden" id="id_empresa_entrega" name="id_empresa_entrega" value= 2>
                                                 <button type="submit" class="btn btn-secondary">Reservar</button>

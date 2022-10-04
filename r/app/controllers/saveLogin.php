@@ -10,7 +10,12 @@ $usuario = $autenticador->realizarLogin($_POST);
 
 if(isset($_POST['email'])) {
     if(!$validator->validateLogin($_POST, $usuario)){
-        header('Location: /?page=home');
+        $nome = $_SESSION['nome'];
+        if($nome == "adm"){
+            //var_dump($_SESSION['nome']);
+            header('Location: /?page=adm_veiculos&action=read');
+        } else
+            header('Location: /?page=home');
     }
     else{
         $_SESSION['message'] = $validator->buildList();

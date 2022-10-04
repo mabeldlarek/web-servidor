@@ -26,7 +26,6 @@ class Autenticador
         if (isset($usuario)) {
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
-            $nome = $usuario['nome'];
             return true;
         } else {
             return false;
@@ -35,7 +34,9 @@ class Autenticador
 
     public function verificarLogin(): bool
     {
-        if (!isset($_SESSION['id_usuario'])) {
+        if (isset($_SESSION['id_usuario'])) {
+            return true;
+        } else{
             return false;
         }
     }
