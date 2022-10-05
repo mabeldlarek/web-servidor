@@ -1,3 +1,5 @@
+<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php'?>
+
 <section class="container">
 
     <h1 class="text-center">Veículos:</h1>
@@ -17,6 +19,7 @@
                 <th scope="col">Cor</th>
                 <th scope="col">Quilometragem</th>
                 <th scope="col">Custo por dia</th>
+                <th scope="col">Empresa Possuidora</th>
                 <th scope="col">Editar</i></th>
                 <th scope="col">Remover</i></th>
             </tr>
@@ -28,7 +31,7 @@
                 <?php if(isset($images[$tuple['id_veiculo']])):?>
                     <td><img class="img-fluid" style="max-height: 5rem" src="data:image/jpg;base64,<?php echo base64_encode($images[$tuple['id_veiculo']][0]); ?>" alt="<?= $images[$tuple['id_veiculo']][1] ?>"></td>
                 <?php else:?>
-                    <td><img class="img-fluid" style="max-height: 5rem" src="resources/images/placeholder.jpg" alt="Veículo sem imagem"></td>
+                    <td><img class="img-fluid" style="max-height: 5rem" src="resources/img/placeholder.jpg" alt="Veículo sem imagem"></td>
                 <?php endif;?>
                 <td><?= $tuple['placa']; ?></td>
                 <td><?= $tuple['modelo']; ?></td>
@@ -37,6 +40,7 @@
                 <td><?= $tuple['cor']; ?></td>
                 <td><?= $tuple['quilometragem']; ?>km</td>
                 <td>R$<?= $tuple['custo_dia']; ?></td>
+                <td><?= $tuple['razao_social']; ?></td>
                 <td><a class="btn btn-outline-light" href="/?page=adm_veiculos&action=update&id=<?=$tuple['id_veiculo']?>"><i class="bi bi-tools"></i></a></td>
                 <td><a class="btn btn-outline-light" href="/?page=adm_veiculos&action=delete&id=<?=$tuple['id_veiculo']?>"><i class="bi bi-trash"></i></i></a></td>
             </tr>

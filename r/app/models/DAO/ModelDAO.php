@@ -4,6 +4,10 @@ namespace app\models;
 
 use PDO;
 
+
+/**
+ *  Classe abstrata para CRUD básico
+ */
 abstract class ModelDAO
 {
 

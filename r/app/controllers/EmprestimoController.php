@@ -11,8 +11,8 @@ class EmprestimoController extends AdminController
     {
         $this->banco->delete($id);
 
-        $_SESSION['message'] = 'Exclusão realizada com sucesso!';
+        $_SESSION['message'] = 'Reserva Cancelada!';
 
-        header('Location: /?page=perfil&action=read');
+        header('Location: /?page=perfil&action=update&id=' . $_SESSION['id_usuario']);
     }
 }

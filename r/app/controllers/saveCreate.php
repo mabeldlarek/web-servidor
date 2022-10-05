@@ -73,7 +73,7 @@ elseif (isset($_POST['id_empresa_emprestimo'])) {
         $banco = new EmprestimoDAO();
         $banco->create($_POST);
         echo("sucesso");
-        //redirecionar pra pagina do usuario
+        header('Location: /?page=perfil&action=update&id=' . $_SESSION['id_usuario']);
 }
 elseif (isset($_POST['senha'])) {
     if(!$validator->validateUsuario($_POST)) {

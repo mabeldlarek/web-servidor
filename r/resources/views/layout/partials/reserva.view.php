@@ -1,3 +1,5 @@
+<?php require APP_ROOT . '/resources/helpers/auth/auth.php'?>
+
 <section class="bg-light">
 <?php
     if(isset($_SESSION['message'])):?>

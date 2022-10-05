@@ -1,3 +1,5 @@
+<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php'?>
+
 <section class="container border">
 
     <h1 class="text-center py-4">Editando Veículo #<?=$tuple['id_veiculo']?>:</h1>
@@ -18,6 +20,14 @@
             <div class="col">
                 <label for="ano">Ano</label>
                 <input type="number" class="form-control" id="ano" name="ano" value="<?= $tuple['ano']?>">
+            </div>
+            <div class="col">
+                <label>Empresa</label>
+                <select class="form-select" id="id_empresa" name="id_empresa">
+                    <?php foreach($empresas as $empresa) : ?>
+                        <option value="<?= $empresa['id_empresa']?>"><?= $empresa['razao_social']?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
         <div class="row py-4">
