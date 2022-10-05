@@ -7,6 +7,7 @@ use app\controllers\UsuarioController;
 use app\controllers\CarPageController;
 use app\controllers\ReservaController;
 use app\controllers\LoginController;
+use app\controllers\CadastroController;
 
 // Carregando configurações
 
@@ -36,7 +37,9 @@ if(isset($_GET['page'])) {
         $Controller = new LoginController();
     } elseif ($_GET['page'] == 'perfil') {
         $Controller = new ProfileController();
-    } else {
+    } elseif ($_GET['page'] == 'home_register') {
+        $Controller = new CadastroController();
+    }else {
         $found = false;
     }
 
@@ -54,6 +57,8 @@ if(isset($_GET['page'])) {
                     $Controller->exibirConfirmacaoReserva($_GET['IdCarroReserva'], $_GET['dataEmprestimo'],
                     $_GET['dataEntrega'], $_GET['local'], $_GET['idUsuario']);
                 }
+            }elseif($_GET['page'] == 'home_register') {
+                    $Controller->exibirRegistro();
             }
             elseif($_GET['page'] == 'home') {
                     $Controller->exibirHomePage();

@@ -127,10 +127,9 @@ class Validate
             }
             if ((strlen($login['senha']) === 0)) {
                 $this->messages[] = 'Informe sua senha.';
-            }
-            else
+            } else
                 $this->messages[] = 'E-mail ou senha incorretos';
-            }
+        }
 
         return isset($this->messages);
     }
@@ -140,20 +139,24 @@ class Validate
         if ($permissao === false) {
             $this->messages[] = 'Você precisa estar logado para prosseguir com a reserva.';
         }
-        return isset($this->messages); 
+        return isset($this->messages);
     }
 
-    public function teste() : bool{
+    public function teste(): bool
+    {
         return true;
-
     }
 
     public function validateUsuario(array $usuario): bool
     {
+        $banco = new UsuarioDAO();
 
         if ($this->isEmpty($usuario)) {
             $this->messages[] = 'Todos os campos devem ser preenchidos';
         } else {
+            if (($banco->obterUsuarioPorCPF($usuario['cpf'])) || ($banco->obterUsuarioPorEmail($usuario['e_mail']))) {
+                $this->messages[] = 'Usuário já cadastrado';
+            }
             if (!$this->validateCPF($usuario['cpf'])) {
                 $this->messages[] = 'CPF inválido';
             }
@@ -167,33 +170,31 @@ class Validate
                 $this->messages[] = 'Informe uma senha com no mínimo 8 caracteres';
             }
             if ($this->validateData($usuario['data_nascimento'])) {
-                if(!$this->validateIdade($usuario['data_nascimento'])){
-                    $this->messages[] = 'Necessário ser maior de 18 anos.';
+                if (!$this->validateIdade($usuario['data_nascimento'])) {
+                    $this->messages[] = 'Necessário ser maior de 18 anos';
                 }
-            }
-            else{
+            } else {
                 $this->messages[] = 'Data inválida';
             }
-            
-
         }
 
         return isset($this->messages);
     }
 
     //Função para validação de cpf, adaptada de https://dev.to/alexandrefreire/funcao-em-php-para-validar-cpf-3kpd
-    function validateCPF($cpf) {
+    function validateCPF($cpf)
+    {
 
-        $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
-    
+        $cpf = preg_replace('/[^0-9]/is', '', $cpf);
+
         if (strlen($cpf) != 11) {
             return false;
         }
-    
+
         if (preg_match('/(\d)\1{10}/', $cpf)) {
             return false;
         }
-    
+
         for ($t = 9; $t < 11; $t++) {
             for ($d = 0, $c = 0; $c < $t; $c++) {
                 $d += $cpf[$c] * (($t + 1) - $c);
@@ -204,31 +205,30 @@ class Validate
             }
         }
         return true;
-    
     }
     public function validateEmail($email)
     {
-        if(preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(.[[:lower:]]{2,3})(.[[:lower:]]{2})?$/", $email)) {
+        if (preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(.[[:lower:]]{2,3})(.[[:lower:]]{2})?$/", $email)) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
-    
-    public function validateData($dataUser) : bool
+
+    public function validateData($dataUser): bool
     {
         $dia = date("d", strtotime($dataUser));
         $mes = date("m", strtotime($dataUser));
         $ano = date("Y", strtotime($dataUser));
 
-        if(!checkdate($mes, $dia, $ano)){
+        if (!checkdate($mes, $dia, $ano)) {
             return false;
         }
         return true;
     }
 
-    private function validateIdade($dataAniver):bool
-    {   
+    private function validateIdade($dataAniver): bool
+    {
         $dataAtual = date("Y/m/d");
         $diaAt = date("d", strtotime($dataAtual));
         $mesAt = date("m", strtotime($dataAtual));
@@ -240,22 +240,31 @@ class Validate
 
         $age = $anoAt - $anoAniver;
         $m = $mesAt - $mesAniver;
-            if ($m < 0 || ($m === 0 && $dataAtual < $dataAniver)) {
-                $age--;
-            }
-            if ($age >= 18) {
-                return true;
-            }
-            
+        if ($m < 0 || ($m === 0 && $dataAtual < $dataAniver)) {
+            $age--;
+        }
+        if ($age >= 18) {
+            return true;
+        }
+
         return false;
     }
 
-    public function validateBusca($busca){
+    public function validateBusca($busca)
+    {
+
+        $banco = new VeiculoDAO();
+        $emprestimo = new EmprestimoDAO();
+        $resultado = $banco->readByAvailableDate($busca['data_emprestimo']);
+
         if ($this->isEmpty($busca)) {
             $this->messages[] = 'Todos os campos devem ser preenchidos';
+        } elseif (!$resultado) {
+            $this->messages[] = 'Nenhum carro encontrado';
+        } elseif (strtotime($busca['data_emprestimo']) > strtotime($busca['data_entrega'])) {
+            $this->messages[] = 'Data de entrega deve ser após o empréstimo';
         }
+
         return isset($this->messages);
     }
-
 }
-

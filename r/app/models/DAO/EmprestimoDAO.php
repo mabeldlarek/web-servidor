@@ -26,4 +26,12 @@ class EmprestimoDAO extends ModelDAO
         return $query->fetchAll();
     }
 
+    public function calcularDiasEmprestimo($dataEmprestimo, $dataEntrega) : int {
+        $dtEmprestimo = new \DateTime($dataEmprestimo);
+        $dtEntrega = new \DateTime($dataEntrega);
+        $dias = $dtEmprestimo->diff($dtEntrega);
+
+        return $dias->days;
+    }
+
 }

@@ -1,13 +1,13 @@
-<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php'?>
+<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php' ?>
 
 <section class="container border">
 
     <h1 class="text-center py-4">Inserindo Novo Usuario</h1>
 
     <?php
-    if(isset($_SESSION['message'])):?>
+    if (isset($_SESSION['message'])) : ?>
         <div class="alert alert-danger">
-            <p class="text-center h4"><?=$_SESSION['message']?></p>
+            <p class="text-center h4"><?= $_SESSION['message'] ?></p>
         </div>
     <?php endif;
     unset($_SESSION['message']);
@@ -25,6 +25,10 @@
         </div>
         <div class="row py-4">
             <div class="col">
+                <label for="senha">Senha</label>
+                <input type="text" class="form-control" id="senha" name="senha">
+            </div>
+            <div class="col">
                 <label for="e_mail">E-mail</label>
                 <input type="e_mail" class="form-control" id="e_mail" name="e_mail">
             </div>
@@ -34,11 +38,7 @@
             </div>
             <div class="col">
                 <label for="cpf">CPF</label>
-                <input type="text" class="form-control" id="cpf" name="cpf" >
-            </div>
-            <div class="col">
-                <label for="senha">Senha</label>
-                <input type="text" class="form-control" id="senha" name="senha" >
+                <input type="text" class="form-control" id="cpf" name="cpf">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Inserir</button>

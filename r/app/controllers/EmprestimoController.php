@@ -15,4 +15,5 @@ class EmprestimoController extends AdminController
 
         header('Location: /?page=perfil&action=update&id=' . $_SESSION['id_usuario']);
     }
+
 }

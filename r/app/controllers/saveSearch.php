@@ -9,5 +9,6 @@ if (!$validator->validateBusca($_POST)) {
                         '&dataEntrega=' . $_POST['data_entrega'] . '&local=' . $_POST['local']);
         }
 } else {
+        $_SESSION['message'] = $validator->buildList();
         header('Location: /?page=home');
 }

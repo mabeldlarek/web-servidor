@@ -25,4 +25,22 @@ class UsuarioDAO extends ModelDAO
 
         return $usuario;
     }
+
+    public function obterUsuarioPorEmail($email): bool|array
+    {
+        $query = $this->conn->prepare("SELECT * FROM usuario
+        WHERE e_mail ='$email'");
+        $query->execute();
+
+        return $query->fetch();
+    }
+
+    public function obterUsuarioPorCPF($cpf): bool|array
+    {
+        $query = $this->conn->prepare("SELECT * FROM usuario
+        WHERE cpf ='$cpf'");
+        $query->execute();
+
+        return $query->fetch();
+    }
 }

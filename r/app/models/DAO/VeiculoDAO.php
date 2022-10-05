@@ -58,4 +58,13 @@ class VeiculoDAO extends ModelDAO
 
         return $query->fetch();
     }
+
+    public function obterDadosEmpresa($idEmpresa): bool|array
+    {
+        $query = $this->conn->prepare("SELECT * FROM empresa
+        WHERE id_empresa ='$idEmpresa'");
+        $query->execute();
+
+        return $query->fetch();
+    }
 }

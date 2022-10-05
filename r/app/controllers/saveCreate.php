@@ -3,9 +3,21 @@
 include_once  dirname(__FILE__, 3) . '/config/config.php';
 
 $validator = new Validate();
-var_dump($_POST);
 
 // Definição de qual tabela armazenar os dados e validação de regras de negócio
+if (isset($_POST['cadastro'])) {
+    if(!$validator->validateUsuario($_POST)) {
+        unset($_POST['cadastro']);
+        $_SESSION['message'] = 'Cadastro realizado com sucesso!';
+        $banco = new UsuarioDAO();
+        $banco->create($_POST);
+        header('Location: /?page=login');
+
+    } else {
+        $_SESSION['message'] = $validator->buildList();
+        header('Location: /?page=home_register');
+    }
+}
 if(isset($_POST['email'])) {
     if(!$validator->validateUsuario($_POST)) {
 
@@ -69,23 +81,8 @@ if(isset($_POST['email'])) {
     }
 }
 elseif (isset($_POST['id_empresa_emprestimo'])) {
-    //faltam as validações
         $banco = new EmprestimoDAO();
         $banco->create($_POST);
         echo("sucesso");
         header('Location: /?page=perfil&action=update&id=' . $_SESSION['id_usuario']);
-}
-elseif (isset($_POST['senha'])) {
-    if(!$validator->validateUsuario($_POST)) {
-
-        $_SESSION['message'] = 'Usuario criado com sucesso!';
-        $banco = new UsuarioDAO();
-        $banco->create($_POST);
-        header('Location: /?page=adm_usuarios&action=read');
-
-    } else {
-
-        $_SESSION['message'] = $validator->buildList();
-        header('Location: /?page=adm_usuarios&action=create');
-    }
 }

@@ -29,12 +29,12 @@
                 <label class="form-label" for="senha">Senha</label>
               </div>
 
-              <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" >Login</button>
 
             </div>
             </form>
             <div>
-              <p class="mb-0">Ainda não é cadastrado? <a href="#!" class="text-white-50 fw-bold">Cadastre-se</a>
+              <p class="mb-0">Ainda não é cadastrado? <a href="/app/controllers/saveRegister.php" class="text-white-50 fw-bold">Cadastre-se</a>
               </p>
             </div>
           </div>
