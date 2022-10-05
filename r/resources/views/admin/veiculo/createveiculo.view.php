@@ -1,3 +1,5 @@
+<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php'?>
+
 <section class="container border">
 
     <h1 class="text-center py-4">Inserindo Novo Veículo</h1>
@@ -8,22 +10,22 @@
         <div class="row py-4">
             <div class="col">
                 <label for="placa">Placa</label>
-                <input type="text" class="form-control" id="placa" name="placa"">
+                <input type="text" class="form-control" id="placa" name="placa" required>
             </div>
             <div class="col">
                 <label for="modelo">Modelo</label>
-                <input type="text" class="form-control" id="modelo" name="modelo">
+                <input type="text" class="form-control" id="modelo" name="modelo" required>
             </div>
             <div class="col">
                 <label for="ano">Ano</label>
-                <input type="number" step='1' class="form-control" id="ano" name="ano">
+                <input type="number" step='1' class="form-control" id="ano" name="ano" required>
             </div>
-        </div>
-        <div class="row py-4">
             <div class="col">
                 <label for="marca">Marca</label>
                 <input type="text" class="form-control" id="marca" name="marca">
             </div>
+        </div>
+        <div class="row py-4">
             <div class="col">
                 <label for="cor">Cor</label>
                 <input type="text" class="form-control" id="cor" name="cor">
@@ -35,6 +37,14 @@
             <div class="col">
                 <label for="custo_dia">Custo por Dia</label>
                 <input type="number" step='0.01' class="form-control" id="custo_dia" name="custo_dia">
+            </div>
+            <div class="col">
+                <label>Empresa</label>
+                <select class="form-select" id="id_empresa" name="id_empresa" required>
+                    <?php foreach($empresas as $empresa) : ?>
+                        <option value="<?= $empresa['id_empresa']?>"><?= $empresa['razao_social']?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
         <div class="row py-4 border-top">

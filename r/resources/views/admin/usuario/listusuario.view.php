@@ -1,3 +1,5 @@
+<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php'?>
+
 <section class="container">
 
     <h1 class="text-center">Usuarios:</h1>

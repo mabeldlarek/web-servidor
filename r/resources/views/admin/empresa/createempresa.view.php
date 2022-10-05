@@ -1,3 +1,5 @@
+<?php require APP_ROOT . '/resources/helpers/auth/authAdmin.php'?>
+
 <section class="container border">
 
     <h1 class="text-center py-4">Inserindo Nova Empresa</h1>

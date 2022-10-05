@@ -10,6 +10,26 @@ class VeiculoDAO extends ModelDAO
         parent::__construct('veiculo');
     }
 
+    public function read(int $id = null): bool|array
+    {
+        if (isset($id)) {
+
+            $query = $this->conn->prepare("SELECT v.*, e.razao_social FROM veiculo v
+                                                 JOIN empresa e USING(id_empresa) 
+                                                 WHERE v.id_veiculo = $id");
+            $query->execute();
+
+            return $query->fetch();
+        } else {
+
+            $query = $this->conn->prepare("SELECT v.*, e.razao_social FROM veiculo v
+                                                 JOIN empresa e USING(id_empresa)");
+            $query->execute();
+
+            return $query->fetchAll();
+        }
+    }
+
     public function readByAvailableDate(String $date): bool|array
     {
         $query = $this->conn->prepare(

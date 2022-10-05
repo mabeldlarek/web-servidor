@@ -6,8 +6,8 @@ abstract class PageController
     protected String $tipo;
 
     /**
-     * @param $banco
-     * @param $tipo
+     * @param mixed $banco
+     * @param String $tipo
      */
     public function __construct(mixed $banco, String $tipo)
     {

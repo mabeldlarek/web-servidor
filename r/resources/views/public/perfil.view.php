@@ -1,23 +1,26 @@
+<?php require APP_ROOT . '/resources/helpers/auth/authProfile.php'?>
+
 <section class="container">
 
     <h1 class="text-center my-4">Página Pessoal de <?= $_SESSION['nome'] ?></h1>
 
     <form class="text-center p-4" action="/app/controllers/saveEdit.php" method="POST">
-        <input type="hidden" id="id_perfil" name="id_perfil" value="<?= $_SESSION['id_usuario']?>">
+        <input type="hidden" id="pessoal" name="pessoal" value="true">
+        <input type="hidden" id="id_usuario" name="id_usuario" value="<?= $_SESSION['id_usuario']?>">
         <div class="row py-4">
             <div class="col">
                 <label for="nome">Nome</label>
                 <input type="text" class="form-control" id="nome" name="nome" value="<?= $_SESSION['nome']?>">
             </div>
             <div class="col">
-                <label for="dtNascimento">Data de Nascimento</label>
-                <input type="date" class="form-control" id="dtNascimento" name="dtNascimento" value="<?= $_SESSION['data_nascimento']?>">
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" value="<?= $_SESSION['data_nascimento']?>">
             </div>
         </div>
         <div class="row py-4">
             <div class="col">
                 <label for="email">E-mail</label>
-                <input type="email" class="form-control" id="email" name="email" value="<?= $_SESSION['e_mail']?>">
+                <input type="email" class="form-control" id="e_mail" name="e_mail" value="<?= $_SESSION['e_mail']?>">
             </div>
             <div class="col">
                 <label for="telefone">Telefone</label>
@@ -26,6 +29,10 @@
             <div class="col">
                 <label for="email">CPF</label>
                 <input type="text" class="form-control" id="cpf" name="cpf" value="<?= $_SESSION['cpf']?>">
+            </div>
+            <div class="col">
+                <label for="senha">Senha</label>
+                <input type="password" class="form-control" id="senha" name="senha" value="<?= $_SESSION['senha']?>">
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Salvar Edições</button>

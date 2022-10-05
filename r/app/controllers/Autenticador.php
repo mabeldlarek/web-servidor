@@ -11,10 +11,6 @@ class Autenticador
     protected mixed $banco;
     protected String $tipo;
 
-    /**
-     * @param $banco
-     * @param $tipo
-     */
     public function __construct()
     {
         $this->banco = new UsuarioDAO();
@@ -24,12 +20,15 @@ class Autenticador
     {
         $usuario = $this->banco->obterUsuarioLogin($login);
         if (isset($usuario)) {
-            $_SESSION['id_usuario'] = $usuario['id_usuario'];
-            $_SESSION['nome'] = $usuario['nome'];
-            $_SESSION['e_mail']  = $usuario['e_mail'];
+
+            $_SESSION['id_usuario']       = $usuario['id_usuario'];
+            $_SESSION['nome']             = $usuario['nome'];
+            $_SESSION['e_mail']           = $usuario['e_mail'];
             $_SESSION['data_nascimento']  = $usuario['data_nascimento'];
-            $_SESSION['telefone']  = $usuario['telefone'];
-            $_SESSION['cpf']  = $usuario['cpf'];
+            $_SESSION['telefone']         = $usuario['telefone'];
+            $_SESSION['cpf']              = $usuario['cpf'];
+            $_SESSION['senha']            = $usuario['senha'];
+
             $nome = $usuario['nome'];
 
             if($nome == "adm"){

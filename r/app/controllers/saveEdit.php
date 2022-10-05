@@ -10,13 +10,23 @@ if(isset($_POST['id_usuario'])) {
 
         $_SESSION['message'] = 'Usuário editado com sucesso!';
         $banco = new UsuarioDAO();
-        $banco->update($_POST['id_usuario'], array_slice($_POST, 1));
-        header('Location: /?page=adm_usuarios&action=read');
+
+        if(isset($_POST['pessoal'])) {
+            $banco->update($_POST['id_usuario'], array_slice($_POST, 2));
+            header('Location: /?page=perfil&action=update&id=' . $_POST['id_usuario']);
+        } else {
+            $banco->update($_POST['id_usuario'], array_slice($_POST, 1));
+            header('Location: /?page=adm_usuarios&action=read');
+        }
 
     } else {
 
         $_SESSION['message'] = $validator->buildList();
-        header('Location: /?page=adm_usuarios&action=update&id=' . $_POST['id_usuario']);
+        if(isset($_POST['pessoal'])) {
+            header('Location: /?page=perfil&action=update&id=' . $_POST['id_usuario']);
+        } else {
+            header('Location: /?page=adm_usuarios&action=update&id=' . $_POST['id_usuario']);
+        }
     }
 
 } elseif (isset($_POST['id_veiculo'])) {
