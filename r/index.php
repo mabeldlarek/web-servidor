@@ -24,15 +24,19 @@ if(isset($_GET['page'])) {
         $Controller = new EmpresaController();
     } elseif ($_GET['page'] == 'adm_usuarios') {
         $Controller = new UsuarioController();
-    }elseif ($_GET['page'] == 'home') {
+    } elseif ($_GET['page'] == 'adm_emprestimo') {
+        $Controller = new EmprestimoController();
+    } elseif ($_GET['page'] == 'home') {
         $Controller = new HomeController();
-    }elseif ($_GET['page'] == 'home_cars') {
+    } elseif ($_GET['page'] == 'home_cars') {
         $Controller = new CarPageController();
-    }elseif ($_GET['page'] == 'home_reserva') {
+    } elseif ($_GET['page'] == 'home_reserva') {
         $Controller = new ReservaController();
-    }elseif ($_GET['page'] == 'login') {
+    } elseif ($_GET['page'] == 'login') {
         $Controller = new LoginController();
-    }else {
+    } elseif ($_GET['page'] == 'perfil') {
+        $Controller = new ProfileController();
+    } else {
         $found = false;
     }
 
@@ -56,25 +60,24 @@ if(isset($_GET['page'])) {
             }
             elseif($_GET['page'] == 'login') {
                 $Controller->exibirLogin();
-        }
-        }else{
-                if ($_GET['action'] == 'read') {
-                    $Controller->read();
-                } elseif ($_GET['action'] == 'update') {
-                    $Controller->update($_GET['id']);
-                } elseif ($_GET['action'] == 'delete') {
-                    $Controller->delete($_GET['id']);
-                } else {
-                    $Controller->create();
-                }
             }
+        }
+        if(isset($_GET['action'])) {
+            if ($_GET['action'] == 'read') {
+                $Controller->read();
+            } elseif ($_GET['action'] == 'update') {
+                $Controller->update($_GET['id']);
+            } elseif ($_GET['action'] == 'delete') {
+                $Controller->delete($_GET['id']);
+            } elseif ($_GET['action'] == 'create') {
+                $Controller->create();
+            }
+        }
+
     }
 
 }
 else {
-    // TODO Substituir pela Home Screen
     $Controller = new HomeController();
     $Controller->exibirHomePage();
 }
-
-

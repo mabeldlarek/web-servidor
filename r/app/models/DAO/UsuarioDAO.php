@@ -13,8 +13,7 @@ class UsuarioDAO extends ModelDAO
     public function obterUsuarioLogin($login): array|null
     {
         $query = $this->conn->prepare(
-            "SELECT id_usuario, nome from usuario WHERE e_mail = :email AND senha = :senha"
-        );
+            "SELECT * from usuario WHERE e_mail = :email AND senha = :senha");
         $query->bindValue("email", $login['email']);
         $query->bindValue("senha", $login['senha']);
         $query->execute();

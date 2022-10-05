@@ -2,14 +2,8 @@
 
     <h1 class="text-center py-4">Editando Empresa <?=$tuple['razao_social']?>:</h1>
 
-    <?php
-    if(isset($_SESSION['message'])):?>
-        <div class="alert alert-danger">
-            <p class="text-center h4"><?=$_SESSION['message']?></p>
-        </div>
-    <?php endif;
-    unset($_SESSION['message']);
-    ?>
+    <?php include APP_ROOT . '/resources/views/layout/partials/alertwarning.view.php'?>
+
     <form class="text-center p-4" action="/app/controllers/saveEdit.php" method="POST">
         <div class="row py-4">
             <div class="col">
