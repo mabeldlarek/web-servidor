@@ -1,4 +1,12 @@
 <section class="bg-light">
+<?php
+    if(isset($_SESSION['message'])):?>
+        <div class="alert alert-danger">
+            <p class="text-center h4"><?=$_SESSION['message']?></p>
+        </div>
+    <?php endif;
+    unset($_SESSION['message']);
+    ?> 
     <div class="container pb-5">
         <div class="ms-10 row pt-6">
             <table class="table">
@@ -77,7 +85,7 @@
                                                                 <input type="hidden" id="data_emprestimo" name="data_emprestimo" value=<?= $info['dataEmprestimo']; ?>>
                                                                 <input type="hidden" id="data_entrega" name="data_entrega" value=<?= $info['dataEntrega']; ?>>
                                                                 <input type="hidden" id="id_veiculo" name="id_veiculo" value=<?= $tuples['id_veiculo']; ?>>
-                                                                <input type="hidden" id="id_usuario" name="id_usuario" value=<?= $_SESSION['id_usuario']; ?>>
+                                                                <input type="hidden" id="id_usuario" name="id_usuario" value=<?= $info['idUsuario']; ?>>
                                                                 <input type="hidden" id="id_empresa_emprestimo" name="id_empresa_emprestimo" value='1'>
                                                                 <input type="hidden" id="id_empresa_entrega" name="id_empresa_entrega" value='1'>
                                                                 <button type="submit" class="btn btn-secondary">Confirmar reserva</button>

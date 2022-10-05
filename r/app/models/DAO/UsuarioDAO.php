@@ -10,15 +10,19 @@ class UsuarioDAO extends ModelDAO
         parent::__construct('usuario');
     }
 
-    public function obterUsuarioLogin($login):array|bool
+    public function obterUsuarioLogin($login): array|null
     {
         $query = $this->conn->prepare(
             "SELECT * from usuario WHERE e_mail = :email AND senha = :senha");
         $query->bindValue("email", $login['email']);
         $query->bindValue("senha", $login['senha']);
         $query->execute();
-        $usuario = $query->fetch();
+        $usuario = null;
+
+        if ($query->rowCount() > 0) {
+            $usuario = $query->fetch();
+        }
+
         return $usuario;
     }
-
 }

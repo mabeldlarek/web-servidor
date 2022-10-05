@@ -52,7 +52,7 @@ if(isset($_GET['page'])) {
             elseif($_GET['page'] == 'home_reserva') {
                 if($_GET['action'] == 'reservar'){
                     $Controller->exibirConfirmacaoReserva($_GET['IdCarroReserva'], $_GET['dataEmprestimo'],
-                    $_GET['dataEntrega'], $_GET['local']);
+                    $_GET['dataEntrega'], $_GET['local'], $_GET['idUsuario']);
                 }
             }
             elseif($_GET['page'] == 'home') {

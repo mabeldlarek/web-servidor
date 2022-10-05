@@ -134,4 +134,128 @@ class Validate
 
         return isset($this->messages);
     }
+
+    public function validateReserva($permissao): bool
+    {
+        if ($permissao === false) {
+            $this->messages[] = 'Você precisa estar logado para prosseguir com a reserva.';
+        }
+        return isset($this->messages); 
+    }
+
+    public function teste() : bool{
+        return true;
+
+    }
+
+    public function validateUsuario(array $usuario): bool
+    {
+
+        if ($this->isEmpty($usuario)) {
+            $this->messages[] = 'Todos os campos devem ser preenchidos';
+        } else {
+            if (!$this->validateCPF($usuario['cpf'])) {
+                $this->messages[] = 'CPF inválido';
+            }
+            if (!$this->validateEmail($usuario['e_mail'])) {
+                $this->messages[] = 'E-mail inválido';
+            }
+            if (strlen($usuario['nome']) > 50) {
+                $this->messages[] = 'Nome muito grande';
+            }
+            if (strlen($usuario['senha']) < 8) {
+                $this->messages[] = 'Informe uma senha com no mínimo 8 caracteres';
+            }
+            if ($this->validateData($usuario['data_nascimento'])) {
+                if(!$this->validateIdade($usuario['data_nascimento'])){
+                    $this->messages[] = 'Necessário ser maior de 18 anos.';
+                }
+            }
+            else{
+                $this->messages[] = 'Data inválida';
+            }
+            
+
+        }
+
+        return isset($this->messages);
+    }
+
+    //Função para validação de cpf, adaptada de https://dev.to/alexandrefreire/funcao-em-php-para-validar-cpf-3kpd
+    function validateCPF($cpf) {
+
+        $cpf = preg_replace( '/[^0-9]/is', '', $cpf );
+    
+        if (strlen($cpf) != 11) {
+            return false;
+        }
+    
+        if (preg_match('/(\d)\1{10}/', $cpf)) {
+            return false;
+        }
+    
+        for ($t = 9; $t < 11; $t++) {
+            for ($d = 0, $c = 0; $c < $t; $c++) {
+                $d += $cpf[$c] * (($t + 1) - $c);
+            }
+            $d = ((10 * $d) % 11) % 10;
+            if ($cpf[$c] != $d) {
+                return false;
+            }
+        }
+        return true;
+    
+    }
+    public function validateEmail($email)
+    {
+        if(preg_match("/^([[:alnum:]_.-]){3,}@([[:lower:][:digit:]_.-]{3,})(.[[:lower:]]{2,3})(.[[:lower:]]{2})?$/", $email)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public function validateData($dataUser) : bool
+    {
+        $dia = date("d", strtotime($dataUser));
+        $mes = date("m", strtotime($dataUser));
+        $ano = date("Y", strtotime($dataUser));
+
+        if(!checkdate($mes, $dia, $ano)){
+            return false;
+        }
+        return true;
+    }
+
+    private function validateIdade($dataAniver):bool
+    {   
+        $dataAtual = date("Y/m/d");
+        $diaAt = date("d", strtotime($dataAtual));
+        $mesAt = date("m", strtotime($dataAtual));
+        $anoAt = date("Y", strtotime($dataAtual));
+
+        $diaAniver = date("d", strtotime($dataAniver));
+        $mesAniver = date("m", strtotime($dataAniver));
+        $anoAniver = date("Y", strtotime($dataAniver));
+
+        $age = $anoAt - $anoAniver;
+        $m = $mesAt - $mesAniver;
+            if ($m < 0 || ($m === 0 && $dataAtual < $dataAniver)) {
+                $age--;
+            }
+            if ($age >= 18) {
+                return true;
+            }
+            
+        return false;
+    }
+
+    public function validateBusca($busca){
+        if ($this->isEmpty($busca)) {
+            $this->messages[] = 'Todos os campos devem ser preenchidos';
+        }
+        return isset($this->messages);
+    }
+
 }
+

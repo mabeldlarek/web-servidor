@@ -19,6 +19,7 @@
                 <th scope="col">Telefone</th>
                 <th scope="col">E-mail</th>
                 <th scope="col">Senha</th>
+                <th scope="col">CPF</th>
                 <th scope="col">Editar</i></th>
                 <th scope="col">Remover</i></th>
             </tr>
@@ -32,6 +33,7 @@
                 <td><?= $tuple['telefone']; ?></td>
                 <td><?= $tuple['e_mail']; ?></td>
                 <td><?= $tuple['senha']; ?></td>
+                <td><?= $tuple['cpf']; ?></td>
                 <td><a class="btn btn-outline-light" href="/?page=adm_usuarios&action=update&id=<?=$tuple['id_usuario']?>"><i class="bi bi-tools"></i></a></td>
                 <td><a class="btn btn-outline-light" href="/?page=adm_usuarios&action=delete&id=<?=$tuple['id_usuario']?>"><i class="bi bi-trash"></i></i></a></td>
             </tr>

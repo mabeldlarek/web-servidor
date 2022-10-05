@@ -1,4 +1,5 @@
 <?php
+
 namespace app\controllers;
 
 include_once  dirname(__FILE__, 3) . '/config/config.php';
@@ -6,7 +7,7 @@ include_once  dirname(__FILE__, 3) . '/config/config.php';
 use UsuarioDAO;
 
 class Autenticador
-{   
+{
     protected mixed $banco;
     protected String $tipo;
 
@@ -19,10 +20,10 @@ class Autenticador
         $this->banco = new UsuarioDAO();
     }
 
-    public function realizarLogin($login):bool
+    public function realizarLogin($login): bool
     {
         $usuario = $this->banco->obterUsuarioLogin($login);
-        if(isset($usuario)){
+        if (isset($usuario)) {
             $_SESSION['id_usuario'] = $usuario['id_usuario'];
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['e_mail']  = $usuario['e_mail'];
@@ -35,17 +36,17 @@ class Autenticador
                 $_SESSION['permissao'] = "S";
             }
             return true;
-        }
-        else{
+        } else {
             return false;
         }
     }
 
     public function verificarLogin(): bool
     {
-        if (!isset($_SESSION['id_usuario'])) {
+        if (isset($_SESSION['id_usuario'])) {
+            return true;
+        } else{
             return false;
         }
     }
-
 }

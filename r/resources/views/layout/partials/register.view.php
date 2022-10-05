@@ -1,6 +1,6 @@
 <section class="container border">
 
-    <h1 class="text-center py-4">Inserindo Novo Usuario</h1>
+    <h1 class="text-center py-4">Cadastre-se</h1>
 
     <?php
     if(isset($_SESSION['message'])):?>

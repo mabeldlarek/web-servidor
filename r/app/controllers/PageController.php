@@ -31,11 +31,11 @@ abstract class PageController
         require APP_ROOT . '/resources/views/layout/mainlayout.view.php';
     }
 
-    public function exibirConfirmacaoReserva($idCarro, $dataEmprestimo, $dataEntrega, $local): void
+    public function exibirConfirmacaoReserva($idCarro, $dataEmprestimo, $dataEntrega, $local, $idUsuario): void
     {
         $tuples = $this->banco->obterDadosVeiculo($idCarro);
         $info = array("dataEmprestimo" => $dataEmprestimo, "dataEntrega" => $dataEntrega,
-        "local" => $local, "idVeiculo" => $idCarro);
+        "local" => $local, "idVeiculo" => $idCarro, "idUsuario" => $idUsuario);
         $page = APP_ROOT . '/resources/views/layout/partials/reserva.view.php';
         require APP_ROOT . '/resources/views/layout/mainlayout.view.php';
     }
