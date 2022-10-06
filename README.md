@@ -11,10 +11,10 @@
       *Há validações à serem feitas na página de busca;
        *Ajustes quanto à listagem dos dados (ordem dos dados está incoerente) e à efetivação da reserva;
 
- <h3>Documentação de instalação e configuração do software<h3>
-* Foi utilizado o XAMP (V. 3.3.0)
-* Linguagem: PHP (8.1.6);
-* Banco: MariaDB;
+   <h3>Documentação de instalação e configuração do software<h3>
+   * Foi utilizado o XAMP (V. 3.3.0)
+   * Linguagem: PHP (8.1.6);
+   * Banco: MariaDB;
 
 Para funcionamento foi dado o "start" no APACHE e MYSQL localizados no Control Panel do XAMP e posteriormente iniciado um servidor local na pasta raiz "r" do projeto.
 
