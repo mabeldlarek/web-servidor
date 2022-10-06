@@ -1,17 +1,17 @@
-    <h1>Web-Servidor<h1>
-    <h2>Integrantes:<h2>
-      *Maria Izabel
-       *Nauder 
+   <h1>Web-Servidor<h1>
+   <h2>Integrantes:<h2>
+      * Maria Izabel
+      * Nauder 
 
-    <h3>Atividades desenvolvidas por cada integrante<3>
-        *Maria: desenvolveu as páginas de CRUD referentes ao Usuário e suas respectivas validações, à busca, à reserva e ao login.
-        *Nauder: estruturou o código, gerou o script do banco de dados, bem como as classes correspondentes à ele, realizou o CRUD de veículos e empresa, desenvolveu à           "Minha Página" do usuário, além da verificação de login em todas as páginas.
+   <h3>Atividades desenvolvidas por cada integrante<h3>
+        * Maria: desenvolveu as páginas de CRUD referentes ao Usuário e suas respectivas validações, à busca, à reserva e ao login.
+        * Nauder: estruturou o código, gerou o script do banco de dados, bem como as classes correspondentes à ele, realizou o CRUD de veículos e empresa, desenvolveu à           "Minha Página" do usuário, além da verificação de login em todas as páginas.
 
-    <h3>Elementos faltantes:<h3>
+   <h3>Elementos faltantes:<h3>
       *Há validações à serem feitas na página de busca;
        *Ajustes quanto à listagem dos dados (ordem dos dados está incoerente) e à efetivação da reserva;
 
-    <h3>Documentação de instalação e configuração do software<h3>
+ <h3>Documentação de instalação e configuração do software<h3>
 * Foi utilizado o XAMP (V. 3.3.0)
 * Linguagem: PHP (8.1.6);
 * Banco: MariaDB;
