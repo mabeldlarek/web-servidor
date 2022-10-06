@@ -1,6 +1,6 @@
    <h1>Web-Servidor<h1>
    <h2>Integrantes:<h2>
-      - Maria Izabel
+ - Maria Izabel
       - Nauder 
 
    <h3>Atividades desenvolvidas por cada integrante<h3>
