@@ -1,7 +1,9 @@
    <h1>Web-Servidor<h1>
    <h2>Integrantes:<h2>
- - Maria Izabel
-      - Nauder 
+* 
+* Nauder 
+* Maria Izabel
+
 
    <h3>Atividades desenvolvidas por cada integrante<h3>
         * Maria: desenvolveu as páginas de CRUD referentes ao Usuário e suas respectivas validações, à busca, à reserva e ao login.
