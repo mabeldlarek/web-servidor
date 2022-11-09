@@ -1,0 +1,21 @@
+{
+    "name": "alucar/loja-carros",
+    "description": "projeto criado para matéria de desenvolvimento web-servidor na UTFPR-PG",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Maria e Nauder"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.0",
+        "pecee/simple-router": "dev-master"
+    }
+}
